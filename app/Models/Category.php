@@ -9,4 +9,8 @@ class Category extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    public function items(){
+        return $this->hasMany(Item::class);
+    }
 }
