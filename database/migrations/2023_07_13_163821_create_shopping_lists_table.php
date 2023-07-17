@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('shopping_lists', function (Blueprint $table) {
             $table->id();
+            $table->string("name",255)->default("Shopping List");
             $table->enum("state",["Active","Completed","Cancelled"]);
             $table->date("creation_date");
             

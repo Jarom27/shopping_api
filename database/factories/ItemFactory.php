@@ -17,7 +17,7 @@ class ItemFactory extends Factory
     public function definition(): array
     {
         return [
-            "name" => fake()->unique()->sentence(),
+            "name" => fake()->unique()->word(),
             "note" => fake()->unique()->sentences(asText:true),
         ];
     }
