@@ -22,3 +22,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::get('categories',[CategoryController::class,"showAllCategories"]);
 Route::get('items', [ItemController::class,"showAllItems"]);
 Route::get('items/{category}',[ItemController::class,"showItemsByCategory"]);
+Route::post("item/add",[ItemController::class,"addItem"]);

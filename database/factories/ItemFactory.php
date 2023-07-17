@@ -19,6 +19,7 @@ class ItemFactory extends Factory
         return [
             "name" => fake()->unique()->word(),
             "note" => fake()->unique()->sentences(asText:true),
+            "image" => fake()->imageUrl()
         ];
     }
 }

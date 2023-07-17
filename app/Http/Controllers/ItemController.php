@@ -20,4 +20,14 @@ class ItemController extends Controller
         }
         return json_encode([]);
     }
+    public function addItem(Request $request){
+        $request->validate(["name" => "required", "category" => "required"]);
+        $item = new Item();
+        $item->name = $request->name;
+        $item->note = $request->note;
+        $item->image = $request->image;
+        $category = Category::find(intval($request->category));
+        $item->category()->associate($category);
+        $item->save();
+    }
 }
