@@ -9,4 +9,8 @@ class ShoppingList extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    public function items(){
+        return $this->belongsToMany(Item::class,"item__shopping_lists")->withPivot("quantity");
+    }
 }

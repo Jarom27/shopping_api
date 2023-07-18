@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('item__shopping_lists', function (Blueprint $table) {
             $table->id();
-            $table->integer("quantity");
+            $table->integer("quantity")->default(1);
             $table->foreignId("shopping_list_id")->constrained("shopping_lists");
             $table->foreignId("item_id")->constrained();
         });

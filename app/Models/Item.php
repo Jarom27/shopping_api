@@ -12,4 +12,7 @@ class Item extends Model
     public function category(){
         return $this->belongsTo(Category::class);
     }
+    public function shopping_list(){
+        return $this->belongsToMany(ShoppingList::class,"shopping_lists")->withPivot("quantity");
+    }
 }

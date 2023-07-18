@@ -3,6 +3,8 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
+use App\Models\ShoppingList;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -19,5 +21,11 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
         $this->call(CategorySeeder::class);
+        ShoppingList::factory(10)->create();
+        $shopping = new ShoppingList();
+        $shopping->name = "Shopping List";
+        $shopping->state = "Active";
+        $shopping->creation_date = fake()->date();
+        $shopping->save();
     }
 }

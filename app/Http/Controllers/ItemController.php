@@ -9,6 +9,11 @@ use Illuminate\Http\Request;
 class ItemController extends Controller
 {
     //
+    public function giveItem($id){
+        $item = Item::find($id);
+        $info = [$item,$item->category];
+        return json_encode($info[0]);
+    }
     public function showAllItems(){
         $items = Item::all();
         return json_encode($items);
