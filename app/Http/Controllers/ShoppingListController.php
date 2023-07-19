@@ -10,7 +10,7 @@ class ShoppingListController extends Controller
 {
     //
     public function showAllShoppingLists(){
-        $shopping_lists = ShoppingList::all();
+        $shopping_lists = ShoppingList::orderByDesc("creation_date")->get();
         return json_encode($shopping_lists);
     }
     public function showActiveList(){
@@ -24,6 +24,11 @@ class ShoppingListController extends Controller
         $item = Item::find($request->id);
         $shopping = ShoppingList::where("state","Active")->first();
         $shopping->items()->attach($item);
+        $shopping->save();
+    }
+    public function updateItem($id,Request $request){
+        $shopping = ShoppingList::where("state","Active")->first();
+        $shopping->items()->find($id)->pivot->quantity = $request->quantity;
         $shopping->save();
     }
 }

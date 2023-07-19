@@ -30,3 +30,4 @@ Route::post("item/add",[ItemController::class,"addItem"]);
 Route::get("shopping-lists",[ShoppingListController::class,"showAllShoppingLists"]);
 Route::get("shopping-list/active", [ShoppingListController::class,"showActiveList"]);
 Route::post("shopping-list/active/items/add",[ShoppingListController::class,"addItemToTheList"]);
+Route::put('shopping-list/active/items/{id}',[ShoppingListController::class,"updateItem"]);
